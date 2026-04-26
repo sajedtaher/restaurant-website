@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Copatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+     rel="stylesheet" 
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+     crossorigin="anonymous" 
+     referrerpolicy="no-referrer" 
+     />
+
+    <title>Restaurant Web Site</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+
+
+<body>
+
+<!--************************************************************************************************* header section -->
+    
+    <!--! header section start --> <!-- header = başlık bölümü, arama -->
+    <header class="header">
+        <a href="#" class="logo"> 
+            <img src="images/logo.png" alt = "logo" />
+        </a>
+            <nav class="#navbar ">                                  <!--burdaki ilk Home, About vs'lere tıklayınca tıkladığmız bölüme kaysın (kaydırma işlemi)-->
+                <a href="index.html" class="active">Home</a>        <!--bu class home'un altındaki çizgi için-->
+                <a href="about.html">About</a>                      <!--buradaki son Home, About vs'ler header'de yazılma şekilleri-->
+                <a href="menu.html">Menu</a>
+                <a href="products.html">Products</a>     
+                <a href="review.html">Review</a>
+                <a href="contact.html">Contact</a>
+                <a href="blogs.html">Blogs</a>                 
+            </nav>
+            <div class="buttons">
+                <button id="search-btn">                            <!--buna js'ten ulaşabilmek için (id) verme-->
+                    <i class ="fas fa-search"></i>
+                </button>
+                <button id="cart-btn">
+                    <i class ="fas fa-shopping-cart"></i>
+                </button>
+                <button id="menu-btn">
+                    <i class ="fas fa-bars"></i>                    <!-- bars=barlar, üç çizgi üst üste -->
+                </button>
+            </div>
+    <!--*************** inen search'in oluşturması ( yukarıdan aşaya inan search) ***************-->
+            <div class="search-form">               
+                <input                          
+                type="text" 
+                class="search-input" 
+                id="search-box"                     
+                placeholder="search here" 
+                />                                                  <!--input içinde inen search oluşturması-->
+                <i class="fas fa-search"></i>                       <!--inen search'e search işareti eklmesi-->
+            </div>
+    <!--*************** sepet listesi'ni oluşturmak (cart-items-container) *************** -->
+            <div class="cart-items-container">
+                <div class="cart-item">                             <!--cart-items'te 1.ürünün ayarlamsı -->
+                    <i class="fas fa-times"></i>                    <!-- (X) işarti için-->
+                    <img src="images/menu-1.png" alt="menu">        <!--menu-1 resmini ekledik-->
+                    <div class="content">
+                        <h3>cart item 01</h3>                       <!--ürünün başlık ismi-->
+                        <div class="price">$15.99/-</div>             <!--fiyat ayarlaması-->
+                    </div>
+                </div>
+                <div class="cart-item">                             <!--cart-items'te 2.ürünün ayarlamsı -->
+                    <i class="fas fa-times"></i>                    
+                    <img src="images/menu-2.png" alt="menu">        
+                    <div class="content">
+                        <h3>cart item 02</h3>                       
+                        <div class="price">$19.99/-</div>             
+                    </div>
+                </div>
+                <div class="cart-item">                             <!--cart-items'te 3.ürünün ayarlamsı -->
+                    <i class="fas fa-times"></i>                    
+                    <img src="images/menu-3.png" alt="menu">        
+                    <div class="content">
+                        <h3>cart item 03</h3>                     
+                        <div class="price">$12.99/-</div>             
+                    </div>
+                </div>
+                <div class="cart-item">                             <!--cart-items'te 4.ürünün ayarlamsı -->
+                    <i class="fas fa-times"></i>                 
+                    <img src="images/menu-4.png" alt="menu">       
+                    <div class="content">
+                        <h3>cart item 04</h3>                    
+                        <div class="price">$25.99/-</div>            
+                    </div>
+                </div>
+                <a href="#" class="btn">checkout now</a>            <!--(chedkout nou) buttonu oluştuma = (şimdi öde)-->
+            </div>
+    </header>
+    <!--! header section end --> <!-- başlık bölümün sonu-->
+
+<!--************************************************************************************************** home section -->
+
+    <!--! home section start -->  <!-- ana bölümün başlangıcı-->
+    <section class="home" id="home">                                                <!--burdaki idleri home'lere tıklayınca sayfsına gitsin (buralardaki id'ler sadece 34.satıra bağlı)-->
+        <div class="content">
+            <h3>EXPRESS HOME DELIVERY</h3>
+        <p>                                                                         <!-- paragraf etiketi -->
+            Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Laboriosam Quos 
+            Repellendus Aliquam Quam Aperiam Quas?
+        </p>
+        <a href="#" class="btn"> Order Now </a>                                     <!-- button etiketi -->
+    </div>
+    </section>
+    <!--! home section end -->   <!-- ana bölümün sonu-->
+    
+<!--*************************************************************************************************** OUR MENU  -->
+
+    <!-- OUR MENU section start -->
+    <section class="menu" id="menu">
+        <h1 class="heading"> our <span> menu </span></h1>                           <!-- OUR MENU yazdır-->
+        <div class="box-container">
+            <div class="box">                                                       <!-- OUR MENU'deki 1.ürünün ayarlamsı -->
+                <div class="box-head">
+                    <img src="images/menu-1.png" alt="menu" />                      <!-- 1. ürünün resimini seçtik-->
+                    <span class="menu-category"> PIZZA </span>                      <!--ürünün ismini yazdık-->
+                    <h3> 6 Mini Pizzas </h3>                                        <!--bilgilendirme-->
+                    <div class="price"> $104.99 <span> 119.99 </span></div>         <!--indirim fiyatı-->
+                </div>
+                <div class="box-bottom">
+                    <a href="#" class="btn"> add to cart </a>                       <!--add to cart bottunu ekledik-->
+                </div>
+            </div>
+            <div class="box">                                                       <!-- OUR MENU'deki 2.ürünün ayarlamsı -->
+                <div class="box-head">
+                    <img src="images/menu-2.png" alt="menu" />                      
+                    <span class="menu-category"> Burger </span>
+                    <h3> 5 Mini Burgers </h3>
+                    <div class="price"> $99.99 <span> 109.99 </span></div>
+                </div>
+                <div class="box-bottom">
+                    <a href="#" class="btn"> add to cart </a>
+                </div>
+            </div>
+            <div class="box">                                                       <!-- OUR MENU'deki 3.ürünün ayarlamsı -->
+                <div class="box-head">
+                    <img src="images/menu-3.png" alt="menu" />                      
+                    <span class="menu-category"> PIZZA </span>
+                    <h3> 2 Mixed Pizzas </h3>
+                    <div class="price"> $49.99 <span> 59.99 </span></div>
+                </div>
+                <div class="box-bottom">
+                    <a href="#" class="btn"> add to cart </a>
+                </div>
+            </div>
+            <div class="box">                                                       <!-- OUR MENU'deki 4.ürünün ayarlamsı -->
+                <div class="box-head">
+                    <img src="images/menu-4.png" alt="menu" />                      
+                    <span class="menu-category"> Burger </span>
+                    <h3> 3 Burgers </h3>
+                    <div class="price"> $79.99 <span> 99.99 </span></div>
+                </div>
+                <div class="box-bottom">
+                    <a href="#" class="btn"> add to cart </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- OUR MENU section end -->
+
+<!--***************************************************************************************************** OUR PRODUCTS  -->
+
+    <!-- OUR PRODUCTS section start -->    <!--products = ürünler-->
+    <section class="products" id="products">
+    <h1 class="heading"> our <span> products </span></h1>                           <!-- OUR PRODUCTS yazdır (62.satır out menu gibi)-->
+        <div class="box-container">
+            <div class="box">                                                       <!-- OUR PRODUCTS'deki 1.ürünün ayarlaması-->
+                <div class="box-head">
+                    <span class="title"> MINI BURGER </span>
+                    <a href="#" class="name"> Bacon Burger </a>
+                </div>
+                <div class="image">
+                    <img src="images/product-1.png" alt="" />
+                </div>
+                <div class="box-bottom">
+                    <div class="info">
+                        <b class="price"> $6.00 </b>
+                        <span class="amount"> 110gr / 300 Cal </span>
+                    </div>
+                    <div class="product-btn">
+                        <a href="#">
+                            <i class="fas fa-plus"></i>                             <!-- plus (+) buttonu için-->
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="box">                                                       <!-- OUR PRODUCTS'deki 2.ürünün ayarlaması-->
+                <div class="box-head">
+                    <span class="title"> MINI BURGER </span>
+                    <a href="#" class="name"> Bacon Burger </a>
+                </div>
+                <div class="image">
+                    <img src="images/product-2.png" alt="" />
+                </div>
+                <div class="box-bottom">
+                    <div class="info">
+                        <b class="price"> $6.00 </b>
+                        <span class="amount"> 110gr / 300 Cal </span>
+                    </div>
+                    <div class="product-btn">
+                        <a href="#">
+                            <i class="fas fa-plus"></i>                             
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="box dark-bg">                                               <!-- OUR PRODUCTS'deki 3.ürünün ayarlaması-->
+                <div class="box-head">
+                    <span class="title"> MINI BURGER </span>
+                    <a href="#" class="name"> Bacon Burger </a>
+                </div>
+                <div class="image">
+                    <img src="images/dark-product.jpg" alt="" />
+                </div>
+                <div class="box-bottom">
+                    <div class="info">
+                        <b class="price"> $6.00 </b>
+                        <span class="amount"> 110gr / 300 Cal </span>
+                    </div>
+                    <div class="product-btn">
+                        <a href="#">
+                            <i class="fas fa-plus"></i>                            
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- OUR PRODUCTS section end -->
+
+<!--********************************************************************************************************** ABOUT US -->
+
+    <!-- ABOUT US section start -->
+    <section class="about" id="about">
+        <h1 class="heading"> about <span> us </span></h1>                               <!--about us yazdır 62.satırdan getirdik-->
+        <div class="row">                                                               <!--row = sıra, içine iki sıra (etiket) açtık biri resim solda diğeri içerik sağda-->
+            <div class="image">
+                <img src="images/about.jpg" alt="about" />
+            </div>
+            <div class="content">
+                <h3>What Is The Secret Recipe Of Our Burgers?</h3>                      <!-- <h3> = başlık, <p> = paragraf, <a> bottun için kulanılır -->
+                <p>
+                    Lorem Ipsum, Dolor Sit Amet Consectetur Adipisicing Elit. Quisquam 
+                    Voluptatem Facere Amet Temporibus Culpa Sit Illo Earum Cupiditate 
+                    Soluta Perferendis!
+                </p>
+                <p>
+                    Lorem Ipsum, Dolor Sit Amet Consectetur Adipisicing Elit. Quisquam
+                    Voluptatem Facere Amet Temporibus Culpa Sit Illo Earum Cupiditate 
+                    Soluta Perferendis!
+                </p>
+                <p>
+                    Lorem Ipsum, Dolor Sit Amet Consectetur Adipisicing Elit. Quisquam 
+                    Voluptatem Facere Amet Temporibus Culpa Sit Illo Earum Cupiditate 
+                    Soluta Perferendis!
+                </p>
+                <a href="#" class="btn"> learn more </a>
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT US section end -->
+
+<!--********************************************************************************************************** CUSTOMER'S REVİEW -->
+
+    <!-- CUSTOMER'S REVİEW section start -->  <!-- Müşteri yorumları-->
+    <section class="review" id="review">
+        <h1 class="heading"> customer's <span> review </span></h1>                          <!-- customer review yazdır-->
+        <div class="box-container">
+            <div class="box">                                                               <!-- 2.Müşterin yorumu ve bilgilerini ayarlamak-->
+                <img src="images/quote.png" alt="quote" />
+                <p>                                                                         <!--1.Müşterin yorumunu ayzdırma-->
+                    Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Autem Nulla 
+                    Repellendus Similique Porro Explicabo, Blanditiis Voluptatibus 
+                    Obcaecati Harum Est, Eos Quo Modi Alias. Possimus Odio Quam Ex Earum 
+                    Ducimus! Officia.
+                </p>
+                <img src="images/avatar-1..png" alt="avatar" class="user" />                <!-- 1.Müşterin resimi ayzdırma-->
+            <h3> Mehmet Özdemir </h3>                                                       <!-- 1.Müşterin ismi ayzdırma-->
+            <div class="stars">                                                             <!-- müşterin ismindeki beş yıldızı ayalaması-->
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            </div>
+            <div class="box">                                                               <!-- 2.Müşterin yorumu ve bilgilerini ayarlamak-->
+                <img src="images/quote.png" alt="quote" />
+                <p>                                                                         <!--2.Müşterin yorumunu ayzdırma-->
+                    Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Autem Nulla 
+                    Repellendus Similique Porro Explicabo, Blanditiis Voluptatibus 
+                    Obcaecati Harum Est, Eos Quo Modi Alias. Possimus Odio Quam Ex Earum 
+                    Ducimus! Officia.
+                </p>
+                <img src="images/avatar-2.png" alt="avatar" class="user" />                 <!-- 2.Müşterin resimi ayzdırma-->
+            <h3> Ali Mert </h3>                                                             <!-- 2.Müşterin ismi ayzdırma-->
+            <div class="stars">                                                             <!-- müşterin ismindeki beş yıldızı ayalaması-->
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            </div>
+            <div class="box">                                                               <!-- 3.Müşterin yorumu ve bilgilerini ayarlamak-->
+                <img src="images/quote.png" alt="quote" />
+                <p>                                                                         <!--3.Müşterin yorumunu ayzdırma-->
+                    Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Autem Nulla 
+                    Repellendus Similique Porro Explicabo, Blanditiis Voluptatibus 
+                    Obcaecati Harum Est, Eos Quo Modi Alias. Possimus Odio Quam Ex Earum 
+                    Ducimus! Officia.
+                </p>
+                <img src="images/avatar-3..png" alt="avatar" class="user" />                <!-- 3.Müşterin resimi ayzdırma-->
+            <h3> Fatih Erol </h3>                                                           <!-- 3.Müşterin ismi ayzdırma-->
+            <div class="stars">                                                             <!-- müşterin ismindeki beş yıldızı ayalaması-->
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- CUSTOMER'S REVİEW section end -->
+
+<!--********************************************************************************************************** CONTACT US -->
+
+    <!-- CONTACT US section start -->  <!-- bize ulaşın -->
+    <section class="contact" id="contact">
+        <h1 class="heading"> Contact <span> us </span> </h1>                    <!-- contact us yazdır-->
+        <div class="row">                                                       <!-- Google maps'ten istanbul haritasını aldık-->
+            <iframe
+            class="map"                 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48167.9925732072!2d28.91242175095599!3d41.01432592987989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab989e5fae399%3A0x34f0847eed8b22e0!2zRmF0aWgvxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1730846303952!5m2!1str!2str" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <form>                                                                  <!-- haritanın yanındaki formu tasarlamak-->
+            <h3> get in touch </h3>                                             <!-- get in touch başlık olarak yazdır-->
+            <div class="inputBox">                                              <!-- 1. inputBox'u oluşturduk-->
+                <i class="fas fa-user"></i>                                     <!-- name önündeki kullanıcı işareti-->
+                <input type="text" placeholder="name" />                        <!-- içine name yaz-->
+            </div>
+            <div class="inputBox">                                              <!-- 2. inputBox'u oluşturduk-->
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="name" />
+            </div>
+            <div class="inputBox">                                              <!-- 3. inputBox'u oluşturduk-->
+                <i class="fas fa-phone"></i>
+                <input type="number" placeholder="name" />
+            </div>
+            <input type="subit" class="btn" value="contact now" />              <!-- contact now bottunu oluşturduk ve iletişime geç bir anlamı verdik-->
+        </form>
+        </div>
+    </section>
+    <!-- CONTACT US section end -->
+
+<!--********************************************************************************************************** OUR BLOG -->
+
+    <!-- OUR BLOG section start -->
+    <section class="blogs" id="blogs">
+        <h1 class="heading"> our <span> blog </span></h1>                       <!-- our blog yazdır-->
+        <div class="box-container">
+            <div class="box">                                                   <!-- 1. blogumuzu ayarlama-->
+                <div class="image">
+                    <img src="images/blog-1.jpg" alt="blog" />
+                </div>
+                <div class="content">
+                    <a href="#" class="title"> how to make burgers? </a>
+                    <span> by admin / 10st may, 2020 </span>
+                    <p>
+                        Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing Elit,
+                        Temporibus, Laudantium!
+                    </p>
+                    <a href="#" class="btn"> read more </a> 
+                </div>
+            </div>
+            <div class="box">                                                   <!-- 2. blogumuzu ayarlama-->
+                <div class="image">
+                    <img src="images/blog-2.jpg" alt="blog" />
+                </div>
+                <div class="content">
+                    <a href="#" class="title"> how to make burgers? </a>
+                    <span> by admin / 10st may, 2020 </span>
+                    <p>
+                        Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing Elit,
+                        Temporibus, Laudantium!
+                    </p>
+                    <a href="#" class="btn"> read more </a> 
+                </div>
+            </div>
+            <div class="box">                                                   <!-- 3. blogumuzu ayarlama-->
+                <div class="image">
+                    <img src="images/blog-3.jpg" alt="blog" />
+                </div>
+                <div class="content">
+                    <a href="#" class="title"> how to make burgers? </a>
+                    <span> by admin / 10st may, 2020 </span>
+                    <p>
+                        Lorem Ipsum Dolor Sit Amet Consectetur, Adipisicing Elit,
+                        Temporibus, Laudantium!
+                    </p>
+                    <a href="#" class="btn"> read more </a> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- OUR BLOG section end -->
+
+<!--********************************************************************************************************** FOOTER -->
+
+    <!-- FOOTER section start -->  <!-- footer = altbilgi -->
+    <section class="footer">
+        <div class="search">
+            <input type="text" class="search-input" placeholder="search">       <!-- arama search'ı yaptık ve içinde hafif bir search yazıyor-->
+            <button class="btn btn-primary"> search </button>                   <!-- search buttonu oluşturduk--> 
+        </div>
+        <div class="share">                                                     <!-- share class'ında facbook'in ve twitter'in vs sembollerini oluşturma -->
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
+
+        <div class="links">
+            <a href="#" class="active">Home</a>                                 <!-- 25. ile 31.satır arasındaki yazıların aynısı-->
+                <a href="#">About</a>
+                <a href="#">Menu</a>
+                <a href="#">Products</a>
+                <a href="#">Review</a>
+                <a href="#">Contact</a>
+                <a href="#">Blogs</a>
+        </div>
+
+        <div class="created">                                                   <!-- links'in altındaki yazı yazma-->
+            <span> Sajed Taher Mohammed Qotate</span> tarafından yapıldı || bütün hakları saklıdır. 
+        </div>
+    </section>
+    <!-- FOOTER section end -->
+     
+<!--********************************************************************************************************** RESPONSİVE -->   
+
+    <script src="js/script.js"></script>
+</body>
+</html>

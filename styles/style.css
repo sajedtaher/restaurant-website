@@ -1,0 +1,738 @@
+ @import url("https://fonts.googleapis.com/css2?family=poppins:wght@100;300;400;500;600&display=swap");
+ 
+ :root {
+    --main-color: #e84242;
+    --black-color: #0e0e0e;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.4);
+ }
+
+ * {
+    font-family: "poppns", sans-serif;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: 0;
+    text-transform: capitalize;
+    transition: 0.2s ease;                        /*fareyle button vada bazı resimlere işaret edince yavaş bir yakınlaştırma yapsın*/
+ }
+
+ /*! base html codes */
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+/*Kaydırma çubuğu (Scroll) Tasarımı*/
+html::-webkit-scrollbar {
+    width: 0.8rem;                                /*genişliği 8px */
+    background-color: white;                    /*arkası beyaz*/
+}
+
+html::-webkit-scrollbar-track{                    /*buna gerek yok boş bir şey*/
+    background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    border-radius: 3rem;
+    background-color: var(--black-color);         /*çubuk rengi siyar*/
+}
+
+body{
+    background-color:var(--main-color);
+}
+
+section{
+    padding: 3.5rem 7%;                         /*EXPRESS VE Lorem kenardan sağa 35px yada %7 kaydırdık*/
+}
+
+a {
+    color: var(--black-color);                  /*tüm yazıların rengi siyah olsun*/
+    text-decoration: none;                      /*altına çizgi olmasın*/
+}
+
+.btn {                                          /*(Order Now) buttonu ayarlama*/
+    margin-top: 1rem;
+    display: inline-block;                      /*köşelerini yamutma*/
+    padding: 2rem 3.75rem;                      /*boyutu 2rem, eni 3.75rem*/
+    border-radius: 30rem;                     
+    font-size: 1.7rem;                        
+    color: #fff;                            
+    background-color: var(--black-color); 
+    cursor: pointer;    
+}
+/*buttonların düğmeleri*/
+.btn:hover {                                    /*(Add To Cart) buttonu ayarlama*/
+    opacity: 0.8;                               /*fare üzerine gelince rengi değişir*/
+}
+
+.heading {                                      /*(OUR MENU) kelimesinin ayarlaması */
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 4rem;
+    margin-bottom: 3.5rem;
+    border-bottom: 0.1rem solid #fff;
+}
+
+.heading span {
+    color: var(--black-color);                  /*OUR beyaz, MENU siyah*/
+    text-transform: uppercase;
+}
+
+.search-input {                                 /*bu aslında FOOTER'e ait ama bir daha HEADER içinde kullanacağımız için buraya yazdık iki kere yazılmasın diye*/
+    font-size: 1.6rem;                          /*FOOTER'in içindeki search'i ayarlaması*/
+    color: var(--black-color);
+    padding: 1rem;
+    text-transform: none;
+    border-radius: 3rem;                        /*kenarları yamutma*/
+}
+
+/************************************************************************************* header --/
+
+/*! header start */
+.logo img {
+    height: 10rem;
+}
+/*ana sayfadaki en üstteki dörtgen boyutları ve şeklini ayarlamak için*/
+.header {
+    background-color: white;                                /*yada white yerine #fff yazılabilir*/
+    display: flex;                                            /* yan yana yerleştirme ve şekli düzenli durması için */ 
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    margin: 2rem 7%;
+    border-radius: 30rem;
+    box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
+    position: sticky;                                       /*aşağıya inince dörtgen bizimle gelmesi için*/ 
+    top: 0; 
+    z-index: 1000;                                          /*herzaman öünde bir şey kapmasın*/
+}
+/*bunu index.html'den getirdik. 20. satır ait*/
+.header .navbar a {
+    margin: 0 1rem;                                         /*sol sağdakinden uzaklaşsın*/
+    font-size: 1,6rem;                                      /*yazı boyutu 16px (pexsel)*/
+    color: var(--black-color);
+    border-bottom: 0.1rem solid transparent;
+}
+
+.header .navbar .active,                                    /*24. satırdan Home altına sürekli kırmızı olması için*/
+.header  .navbar a:hover {                                  /*ana sayfadaki dörtgen (header) üzerindeki yazılara işaret ettiğimizde altına kırmızı bir yazı gelsin*/
+    border-color: var(--main-color);
+    padding-bottom: 0.5rem;
+}
+/*dörtgenin(header) içindeki arama ve sepeteler arasındaki mesafa daha fazla olsın ve kenarlarında hafif bir reng vardı kadırdık*/
+.header .buttons button{                                    /*noktayı bir class adının önene konulur, adsız calss ise nokta konulmaz*/
+    cursor: pointer;            
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    background-color: transparent;
+}
+
+.header .logo img {
+    height: 10rem ;
+}
+
+.header #menu-btn{                                          /*bu id olduğu için(class olmadığı için) böyle yazdık (html 40.satırdan)*/
+    display: none;                                          /*bars(üst süte üç çizgi) görünmesin*/
+}
+/*************** search form oluşturması ( yukarıdan aşaya inan searc) tasarımı ***************/
+.header .search-form {
+    position: absolute;
+    top: 115%;
+    right: 7%;
+    background-color: #fff;
+    width: 50rem;                                           /*eni belirleme*/
+    height: 5rem;                                           /*yüksekliği belirleme*/
+    display: flex;                                          /*yan yana yaptırma*/
+    align-items: center;
+    border-radius: 3rem;
+    box-shadow: 0px 0px 25px 2px rgb(0 0 0 / 75%);
+    transform: scaleY(0);                                   /*inen search'in kapalı olması sağladık (0) */
+}
+
+.header .search-form .active {                              /*inen search'in açık olması sağladık (1) */
+    transform: scaleY(1);
+}
+
+.header .search-form i {                                    /*inen search'in içine yazılan yazıların ayarlaması*/
+    cursor: pointer;    
+    font-size: 2.2rem;
+    margin-right: 1.2rem;
+    color: var(--black-color);
+}
+.header .search-form input {                                /*yazılan yer bütün inen search'i kaplasın ve search işareti en sağa gider*/
+width: 100%;
+}
+/*************** sepet listesi'ni oluşturmak (cart-items-container) tasarımı ***************/
+.header .cart-items-container {                             /*sepet listesinin arka planı ayalama*/
+    position: absolute;
+    top: 95%;                                               /*yukarıdan*/
+    height: calc(100vh - 9rem);
+    width: 35rem;
+    background-color: #fff;
+    box-shadow: 0px 20px 14px 0px rgb(0 0 0 / 75%);
+    right: -100%;
+}
+
+.header .cart-items-container .active {                     /*sepet listesini sağa çekmesi*/
+    right: 3rem;
+}
+
+.header .cart-items-container .cart-item {                  /*sepet listesinin içindeki resimlerin ayalaması*/
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.header .cart-items-container .cart-item:hover {            /*sepet listesinin öğelreine fare ile işaret edince farklı bir reng versin*/
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.header .cart-items-container .cart-item .fa-times {        /* (X) işareti yerini ayarlamak-sağ üst köşede-*/
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--black-color);
+}
+
+.header .cart-items-container .cart-item .content h3 {      /*ürünün başlık ismini ayarlaması(büyütması) */
+    font-size: 2rem;
+    color: var(--black-color);
+    padding-bottom: 0.5rem;
+}
+
+.header .cart-items-container .cart-item .content .price {  /*fiyat ayarlamsı*/
+    font-size: 1.5rem;
+    color: var(--black-color);
+}
+
+.header .cart-items-container .cart-item img {              /*sepet listesinin içindeki resimlerin yüksekliğini ayalaması*/
+    height: 7rem;
+}
+.header .cart-items-container .btn {                        /*sepet listesinin içindeki buttonun şekli ayarlamsı*/
+    width: 100%;
+    text-align: center;
+    border-radius: unset;
+}
+
+/*! header end */
+
+/******************************************************************************* home --/
+
+/* home start */
+.home{                  
+    min-height: 100vh;                              /*home'deki yazıların boyutları için*/
+    background: url(../images/home.jpg)no-repeat;   /*home'e foto eklemek*/
+    background-size: cover;                         /*tam boyutunu sığdırmak*/
+    background-position: center;                    /*foto'yu ortalamak*/
+    margin-top: -14.5rem;
+    display: flex;                                  /*home'deki (EXPRESS ve Lorem) aşağıya çekip ortalamsı*/
+    align-items: center;
+}
+
+.home .content {
+    max-width: 60rem;
+}
+
+.home .content h3 {                                 /*h3 (EXPRESS) yazısına ayarlayıp beyaz renk verdik*/
+    font-size: 6rem;
+    color: #fff;                     
+}
+
+.home .content p {                                  /*p (paragraf) etiketi ararlama*/
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #ccc;
+}
+/* home end */
+
+/************************************************************************************** OUR MENU --/
+
+/* OUR MENU start */
+.menu .box-container {                            /*OUR MENU'deki remimleri yan yana dizmek için*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem, 1fr)); 
+    gap: 1.5rem;
+}
+
+.menu .box-container .box {                       /*OUR MENU'deki ürünlerin şekillenmesi */
+    padding: 3rem;
+    background-color: #fff;                     /*ürünün kendi arka rengi beyaz olsun */
+    border-radius: 3rem;                          /*sınrılamak için*/
+    background-color: #fff;
+    min-height: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.menu .box-container .box img {
+    width: 100%;                                    /*our menu'deki remimleri yüksekliği ve genişliği için*/
+    object-fit: cover;
+}
+
+.menu .box-container .box .menu-category {
+    font-size: 1.2rem;                              /*Pızzalar gibi kalimeleri boyutunu ayarladık*/
+          
+}
+
+.menu .box-container .box h3 {
+    font-size: 3rem;
+    padding: 1rem 0;
+}
+
+.menu .box-container .box .price {
+    font-size: 2.5rem;                              /*indirim fiyatın boyutunu ayarlama*/
+    padding: 0.5rem 0;
+}
+
+.menu .box-container .box .price span {
+    font-size: 1.5rem;                              /*çizilen fiyatın boyutu*/
+    text-decoration: line-through;                  /*indirim fiyatını üzerine çizmek için*/
+    font-weight: 300;                               /*çizilen fiyatın kalınlığı*/
+}
+
+/* OUR MRNU end */
+
+/************************************************************************************ OUR PRODUCTS --/
+
+/* OUR PEODUCTS start */
+.products .box-container {                          
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem, 1fr)); 
+    gap: 1.5rem;                                                    /*our products'deki remimleri yan yana dizmek için (156.satır aynı)*/
+}
+
+.products .box-container .box {                                     /*OUR PRODUCTS'deki ürünlerin şekillenmesi*/
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    border-radius: 3rem;
+    height: 60rem;
+    display: flex;                              
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+.products .box-container .box .box-head {                           /*MINI BURGER ve Bacon Burger kısımlarını düzelmesi*/
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 10;
+}
+
+.products .box-container .box .box-head .title {                    /*başlığı ayalama (MINI BURGER)*/
+    font-size: 1.4rem;                                              /*boyutu*/
+}
+
+.products .box-container .box .box-head .name {                     /*ismini ayalama (Bacon Burger)*/
+    font-size: 4rem;                                                /*boyutu*/
+    font-weight: bold;                                              /*kalınlığı*/
+    text-align: start;
+    overflow-wrap: anywhere;                            
+}
+
+.products .box-container .dark-bg .box-head .name,                  /*OUR PRODUCTS'deki 3.siyah resimin başlığı ve ismi gözükmesi için ayarlama*/
+.products .box-container .dark-bg .box-head .title {
+    color: #fff;                                                    /*yazısı siyahtan beyaza yaptık*/
+}
+
+.products .box-container img {                                      /*resim taşımamasın için ayarlama*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    border-radius: 3rem;
+}
+
+.products .box-container .dark-bg img {                             /*3. siyah resim taşımamasın için ayarlama*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: unset;
+}
+
+.products .box-container .box-bottom {                              /*OUR PRODUCTS'deki artı (+) bottunu ayarlama*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.products .box-container .box-bottom .info {                        /* OUR PRODUCTS'deki yazıları ayarlama*/
+    display: flex;                                                  /*yan yana koyma, şekli düzenli durması için */
+    flex-direction: column;                                         /*yazıları alt alta getirdik*/
+    align-items: flex-start;                                        /*yazıları başa getirdik*/
+}
+
+.products .box-container .box-bottom .info .price {                 /*OUR PRODUCTS'deki fiyat ayarlaması*/
+    font-size: 3rem;
+}
+
+.products .box-container .box-bottom .info .amount {                /*OUR PRODUCTS'deki miktar ayarlaması*/
+    font-size: 1.4rem;
+}
+
+.products .box-container .dark-bg .box-bottom .info .price,         /*OUR PRODUCTS'deki 3.siyah resimin fiyat ve miktarı gözükmesi için ayarlama*/
+.products .box-container .dark-bg .box-bottom .info .amount {
+    color: #fff;
+}
+
+.products .box-container .box-bottom .product-btn a {               /*OUR PEODUCTS'deki artı(+) bottunun kenarındaki daireyi ayalamak*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 6.5rem;
+    height: 6.5rem;
+    border: 0.2rem solid var(--main-color);                         /*rengi kırmızı ayarladık*/
+}
+
+.products .box-container .box-bottom .product-btn a i {             /*dairenin içindeki artı(+) boyutu ve rengini aylaması*/
+    font-size: 1.6rem;
+    color: var(--main-color);
+}
+
+/* OUR PRODUCTS end*/
+
+/************************************************************************************ ABOUT US --/
+
+/* ABOUT US section start  */
+.about .row {                   /*resim ile içerik yan yana getirip arasında 20px boşluk bıraksın*/
+    display: flex;
+    flex-wrap: wrap;            /*sayfayı küçükleyince resim ve içerik alt alta yazması için*/
+    column-gap: 2rem;
+}
+
+.about .row .image {            /*ABOUT US'deki resimi ayarlama*/
+    flex: 1 1 45rem;            /*esneği ayarlama*/
+}
+
+.about .row img {
+    width: 100%;                /*genişliğini ayarlama*/
+}
+
+.about .row .content {          /*ABOUT US'deki içerik ayarlama*/
+    flex: 1 1 45rem;            /*esneği ayarlama*/
+}
+
+.about .row .content h3 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.about .row .content p {
+    font-size: 1.6rem;
+    color: #ccc;              /*açık gri rengi yap*/
+    padding: 1rem 0;
+    line-height: 1.8;           /*satırların arasındaki boşluk*/
+}
+
+/* ABOUT US section end  */
+
+/************************************************************************************ ABOUT US --*/
+
+/* CUSTOMER'S REVİEW section start */
+.review .box-container {                          
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem, 1fr)); 
+    gap: 1.5rem;                                /*CUSTOMER REVİEW'deki remimleri yan yana dizmek için (156., 201.satır aynı)*/
+}
+
+.review .box-container .box {                   /*CUSTOMER'S REVİEW arkasının şekillenmesi*/
+    border: var(--border);                      /*sınırlamak için*/
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #fff;                  /*arkası beyaz olsun*/
+    border-radius: 3rem;
+}
+
+.review .box-container .box p {                 /*CUSTOMER'S REVİEW yorum paragrafın şekillenmesi*/
+    font-size: 1.5rem;
+    line-height: 1.8;
+    padding: 2rem 0;
+}
+
+.review .box-container .box .user {             /*CUSTOMER'S REVİEW profilini şekillenmesi*/
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review .box-container .box h3 {                /*CUSTOMER'S REVİEW ismini şekillenmesi*/
+    padding: 1rem 0;
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+.review .box-container .box .starts i {         /*CUSTOMER'S REVİEW yıldızlarını şekillenmesi*/
+    font-size: 1.5rem;
+    color: gold;
+}
+
+/* CUSTOMER'S REVİEW section end */
+
+/************************************************************************************ CONTACT US --*/
+
+/* CONTACT US section start */
+.contact .row {
+    display: flex;                              /*haritayı ve formu yan yana yerleştirmek için*/
+    background-color: var(--black-color);       /*harita ve formun arka planı siyah yapma*/
+    flex-wrap: wrap;                            /*sayfayı küçükleyince haritayı ve formu alt alta göstermesi için*/
+    gap: 1rem;                                  /*aralarındaki boşluk*/
+}
+
+.contact .row .map {                            /*haritanın boyutlarını ayarlama ve formla yan yana getirme*/
+    flex: 1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
+.contact .row form {                           /*form boyutlarını ayarlama ve haritayla yan yana getirme*/
+    flex: 1 1 45rem;                            
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.contact .row form h3 {                        /*h3 başlığı gözkmesi için beyaza çevirdik*/
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    color: #fff;
+}
+
+.contact .row form .inputBox {                  /*inputBox'ların düzerlemesi*/
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;                             /*yukardan aşağıya 2rem, sağdan sola 0rem uzaklaşma olsun*/
+    border: var(--border);                      /*sınırlama rengi verme*/
+}
+
+.contact .row form .inputBox i {                /*kulanıcı ve posta vs sempolleri ayarlama*/
+    color: #fff;
+    font-size: 2rem;
+    padding-top: 2rem;
+}
+
+.contact .row form .inputBox input {            /*inputBox'ların içindeki alanları ayarlama*/
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.7rem;
+    color: #fff;
+    text-transform: none;
+    background-color: transparent;
+}
+
+.contact .row form .btn {                       /*contact now bottunu ayarlama*/
+    color: var(--main-color);                   /*içindeki yazı kırmızı olsun*/
+    background-color: #fff;                   /*arka planı beyaz olsun*/
+    font-weight: bold;                          /*yazıyı kalınlaştık*/
+}
+
+/* CONTACT US section end */
+
+/************************************************************************************ OUR BLOG --*/
+
+/* OUR BLOG section start */
+.blogs .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem, 1fr)); 
+    gap: 1.5rem;                                /*OUT BLOG'deki remimleri yan yana dizmek için (156., 201.,341.satır aynı)*/
+}
+
+.blogs .box-container .box {                            
+    background-color: #fff;                   /*arka plamı beyaz yapma*/
+    border-radius: 3rem;                        /*kenarların sınırı yamutma*/
+}
+
+.blogs .box-container .box .image {             /*resmin yeri ayalama*/
+    height: 25rem;                              /*resmin yüksekliği*/
+    overflow: hidden;
+    width: 100%;
+    border-top-left-radius: 3rem;               /*üst sol köşe yamutma*/
+    border-top-right-radius: 3rem;              /*üst sağ köşe yamutma*/
+}
+
+.blogs .box-container .box .image img {         /*resmin yükseği ve eninden ne kadar görünsün*/
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.blogs .box-container .box:hover .image img {  
+    transform: scale(1.2);                      /*blog resmin üzerinde fareyle işaret edince resmi yaklaştırsın*/
+}
+  
+.blogs .box-container .box .content {           /*blog resmin altındaki yazıyı ayarlama*/
+    padding: 2rem;
+}
+
+.blogs .box-container .box .content .title {    /*blog resmin altındaki title'i büyütme*/
+line-height: 1.5;
+font-size: 2.5rem;
+}
+
+.blogs .box-container .box .content span {      /*blog resmin altındaki span'ı belli bir miktarda büyütme */
+display: block; 
+padding-top: 1rem;
+font-size: 2rem;
+}
+
+.blogs .box-container .box .content p {         /*blog resmin altındaki paragrafın yazısını ayarlama*/
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #ccc;
+    padding: 1rem 0;
+}
+/* OUR BLOG section end */
+
+/************************************************************************************ FOOTER --*/
+
+/* FOOTER section end */
+.footer {                                       /*footer'in arka planı siyah yapıp içindeki yazılar merkeze alma*/
+    background-color: var(--black-color);
+    text-align: center;
+}
+
+.footer .search {
+    display: flex;
+    justify-content: center;
+}
+
+.footer .search .search-input {                 /*arama (search) eni genişledik*/
+    width: 30rem;
+}
+
+.footer .search .btn {
+    background-color: var(--main-color);        /*buttonun rengi kırmızı yapma*/
+    padding: 1rem 2rem;
+    margin-left: 1rem;
+}
+.footer .share {                                /*share'dekilerin yerlerini ayalama*/
+    padding: 2rem 0
+}
+
+.footer .share a {
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    color: #fff;
+    font-size: 2rem;
+    border: var(--border);                  /*share'in kenarında kare şekline bir sınır bilirleme*/
+    border-radius: 50%;                     /*o kenarındaki kare sınır yuvarlak yapma*/
+    margin: 0.3rem;
+}
+
+.footer .share a:hover {                    /*share'lerin üzerine fare ile geçince kırmızı renk versin*/
+    background-color: var(--main-color);
+}
+
+.footer .links {                            /*links'leri (houme, about vs) foolte'de yan yana yerleştirme*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;                        /*taşarsa alta atacak*/
+    gap: 1rem;                              /*aralarındaki boşluk 10px olacak*/
+}
+
+.footer .links a {                          /*bu hover'in a'sı (hover'e hazırlık) */
+    background-color: var(--main-color);  
+    padding: 0.7rem 2rem;                   /*aşağıdan yukarıya 7px soldan sağa 20px*/
+    color: #fff;
+    font-size: 2rem;
+    border: var(--border);                  /*links'lerin kenarında hafif bir sınır oluşturduk (üzerine işaretleyince belli olur)*/
+}
+
+.footer .links a:hover {                    /*fare links'lerin üzerine gelince renkleri değişsin*/
+    background-color: var(--black-color);
+    opacity: 0.7;                           /*links leri boyutları için*/
+}
+
+.footer .links a.active {                   /*linksteki Home sürekli siyah (aktiv) olması için*/
+    background-color: var(--black-color);
+}
+
+.footer .created {                          /*created içindeki yazıyı ararlama*/
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 300;
+    padding-top: 1.5rem;
+}
+
+.footer .created span {                     /*creared'in içindeki span yazısını kırmızı yapma*/
+    color: var(--main-color);
+}
+/* FOOTER section end */
+
+/************************************************************************************ RESPONSİVE --*/
+
+/* RESPONSİVE section start */  /*responsive = hassas*/
+@media (max-width: 991px) {                 /*erkran boyutu için, bazı yerleri ekren boyutu küçüldüğünde şekli değişsin yada gitsin*/
+    html {                                  /*html'in boyutu*/
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 1.5rem 2rem;
+    }
+
+    header .logo img {
+        height: 7rem;                       /*header'i küçüldüğü zaman yüksekliği 70px olsun*/
+    }
+
+    section {
+        padding: 2rem;                      /*her bir section'in dogusu 2rem olsun (حشوة)*/
+    }
+
+    .products .box-container .box .box-head .name {
+        font-size: 3.4rem;                  /*name class'ındaki etiketlerin ürün isimlerini küçüldük*/
+    }
+}
+
+@media (max-width: 768px) {                 /*ekran boyutu bu boyuttayken aşağıdakiler olsun*/
+    .header #menu-btn {                     /*üsü üste üç çizgi işareti gelmesi için*/
+        display: inline-block;
+    }
+
+    .header .navbar {                       /*Home, About vs liste gitsin ve üst üste üç izgiye tıklayınca gelsinler*/
+        position: absolute;
+        top: 95%;
+        background-color: #fff;
+        height: calc(100vh, 9rem);
+        width: 30rem;
+        box-shadow: 0px 20px 14px 0px rgb(0 0 0 / 75%);
+        right: -100%;
+    }
+
+    .header .navbar .active {               /*header'den gimeyi ve üst üste üç çizgiyi activ ettirmesi*/
+        right: 3rem;
+    }
+    
+    .header .havbar a {                     /*Home listesinin yazı düzelemesi*/
+        color: var(--black-color);
+        display: block;                     /*üst üste dizilsinler*/
+        margin: 1.5rem;
+        padding: 2rem;                      /*2rem uzaklaştırma*/
+        font-size: 2rem;                    /*yazı boytları 2rem olsun*/
+    }
+}
+
+@media (max-width: 576px) {                 /*erkran boyutu için, bazı yerleri ekren boyutu küçüldüğünde şekli değişsin yada gitsin*/
+    html {                                  /*html'in boyutu küçük verdik küçük tel'larda görünsün diye*/
+        font-size: 50%;
+    }
+}
+/* RESPONSİVE section end */
