@@ -4,7 +4,7 @@ A responsive multi-page restaurant website developed as a university project.
 
 ## Live Demo
 
-🚀 [Open Website](https://glittering-griffin-96bfd7.netlify.app/)
+[Open Website](https://glittering-griffin-96bfd7.netlify.app/)
 
 ## Features
 
@@ -35,7 +35,3 @@ This project was created to practice front-end web development skills and websit
 * Blog
 * Reviews
 * Contact
-
-## Author
-
-Developed by Sajed Taher
